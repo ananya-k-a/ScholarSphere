@@ -4,54 +4,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ScholarSphere</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Banner -->
+  <!-- Banner with thin header -->
   <header class="banner">
-    <h1>ScholarSphere</h1>
+    <h1>Welcome to ScholarSphere</h1>
+    <p>Your one-stop place for scholarships, internships, and competitions</p>
+    <div class="button-group">
+      <button class="main-button" onclick="scrollToSection('scholarships')">Scholarships</button>
+      <button class="main-button" onclick="scrollToSection('internships')">Internships</button>
+      <button class="main-button" onclick="scrollToSection('competitions')">Competitions</button>
+    </div>
   </header>
 
-  <!-- Description & buttons below banner -->
-  <section class="intro-section">
-    <p>Your gateway to scholarships, internships, and competitions — all in one vibrant place to launch your future!</p>
-
-    <div class="button-group">
-      <button class="main-button">Scholarships</button>
-      <button class="main-button">Internships</button>
-      <button class="main-button">Competitions</button>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section class="reviews">
-    <h2>What People Say</h2>
-    <div class="review-box">
-      <p>"ScholarSphere helped me find amazing scholarship opportunities I never knew existed!"</p>
-      <span>- Emily R.</span>
-    </div>
-    <div class="review-box">
-      <p>"I landed my dream internship thanks to the clear listings and easy navigation."</p>
-      <span>- Jason K.</span>
-    </div>
-  </section>
-
-  <!-- Impact Section -->
-  <section class="impact">
-    <h2>Our Impact</h2>
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar">
     <ul>
-      <li>500+ students matched with scholarships</li>
-      <li>300+ internships secured</li>
-      <li>100+ competitions won</li>
+      <li><a href="#scholarships">Scholarships</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#competitions">Competitions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Scholarships Section -->
+  <section id="scholarships" class="content-section">
+    <h2>Scholarships</h2>
+    <p>Find scholarships tailored just for you! Filter by deadline, amount, and category.</p>
+    <ul class="item-list">
+      <li><strong>Future Leaders Scholarship</strong> - Deadline: June 30, 2025</li>
+      <li><strong>STEM Innovators Award</strong> - Deadline: July 15, 2025</li>
+      <li><strong>Community Service Grant</strong> - Deadline: August 10, 2025</li>
     </ul>
   </section>
 
-  <!-- Footer -->
+  <!-- Internships Section -->
+  <section id="internships" class="content-section">
+    <h2>Internships</h2>
+    <p>Discover internships to boost your career and gain hands-on experience.</p>
+    <ul class="item-list">
+      <li><strong>Tech Startup Internship</strong> - Apply by June 10, 2025</li>
+      <li><strong>Marketing Summer Internship</strong> - Apply by July 1, 2025</li>
+      <li><strong>Environmental Research Internship</strong> - Apply by July 20, 2025</li>
+    </ul>
+  </section>
+
+  <!-- Competitions Section -->
+  <section id="competitions" class="content-section">
+    <h2>Competitions</h2>
+    <p>Participate in exciting competitions and challenge yourself.</p>
+    <ul class="item-list">
+      <li><strong>National Science Bowl</strong> - Registration closes May 30, 2025</li>
+      <li><strong>Creative Writing Contest</strong> - Submit by June 15, 2025</li>
+      <li><strong>Robotics Challenge</strong> - Sign up by July 5, 2025</li>
+    </ul>
+  </section>
+
+  <!-- Testimonials Carousel Section -->
+  <section class="reviews">
+    <h2>What People Are Saying</h2>
+    <div class="carousel">
+      <div class="review active">
+        <p>"ScholarSphere helped me find the perfect scholarship to pay for college. So grateful!"</p>
+        <span>- Priya S.</span>
+      </div>
+      <div class="review">
+        <p>"I landed an amazing internship thanks to ScholarSphere's resources."</p>
+        <span>- James K.</span>
+      </div>
+      <div class="review">
+        <p>"The competitions section pushed me to challenge myself and grow."</p>
+        <span>- Mia R.</span>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prevBtn">&#8592;</button>
+      <button id="nextBtn">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-section">
+    <h2>Contact Us</h2>
+    <p>Have questions or want to suggest an opportunity? Send us a message!</p>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="main-button">Send</button>
+    </form>
+    <p id="formMessage" class="form-message"></p>
+  </section>
+
   <footer>
-    &copy; 2025 ScholarSphere. All rights reserved.
+    <p>© 2025 ScholarSphere. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Smooth scroll function for buttons
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Carousel logic
+    const reviews = document.querySelectorAll('.review');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    function showReview(index) {
+      reviews.forEach((review, i) => {
+        review.classList.toggle('active', i === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+      showReview(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % reviews.length;
+      showReview(currentIndex);
+    });
+
+    // Contact form submission
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
+      form.reset();
+    });
+  </script>
 </body>
 </html>

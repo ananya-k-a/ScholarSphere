@@ -1,179 +1,169 @@
-/* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+/* Reset and base styles */
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Fredoka One', cursive; /* bubble font */
-  background-color: #FFFFFF; /* bright white background */
-  color: #161B33; /* dark navy for text */
+  height: auto;
+  font-family: 'Fredoka One', cursive; /* bubble letter font */
+  background-color: #ffffff; /* bright white */
+  color: #161B33; /* dark navy for strong contrast */
   scroll-behavior: smooth;
 }
 
-/* Banner */
-header.banner {
-  background-color: #8093F1; /* bright blue */
+/* Banner / Thin header */
+header.hero {
+  background-color: #8093F1; /* bright vibrant blue */
+  color: white;
   padding: 20px 0;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(128,147,241,0.7);
-}
-
-header.banner h1 {
-  margin: 0;
-  font-weight: 400;
-  font-size: 3rem;
-  color: #FFFFFF;
+  font-size: 3.5rem;
   letter-spacing: 3px;
-  text-transform: uppercase;
+  font-weight: normal;
+  border-bottom: 4px solid #474973; /* darker accent line */
   user-select: none;
 }
 
-/* Intro Section */
-.intro-section {
-  max-width: 900px;
-  margin: 50px auto 80px;
+/* Description and buttons container below banner */
+.description-container {
+  background-color: #ffffff;
+  padding: 30px 20px 60px 20px;
   text-align: center;
-  padding: 0 20px;
 }
 
-.intro-section p {
+.description-container p {
   font-size: 1.6rem;
-  margin-bottom: 40px;
-  font-weight: 500;
-  color: #161B33;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  color: #474973; /* medium blue */
+  margin: 15px auto 40px;
+  max-width: 600px;
 }
 
-/* Button group */
+/* Buttons container */
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
 .main-button {
-  background-color: #8093F1;
-  color: #FFFFFF;
+  background-color: #8093F1; /* bright blue */
+  color: white;
   padding: 18px 36px;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(128, 147, 241, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   min-width: 160px;
-  letter-spacing: 1.2px;
+  box-shadow: 0 5px 15px rgba(128, 147, 241, 0.4);
   user-select: none;
 }
 
 .main-button:hover {
+  background-color: #5A70D4; /* slightly darker blue */
   transform: scale(1.1);
-  box-shadow: 0 10px 30px rgba(128, 147, 241, 0.85);
+  box-shadow: 0 8px 25px rgba(90, 112, 212, 0.6);
+}
+
+/* Sections style */
+section {
+  padding: 70px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Reviews Section */
-section.reviews {
-  background-color: #f0f4ff; /* very light blue for subtle contrast */
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto 80px;
-  border-radius: 25px;
-  box-shadow: 0 8px 30px rgba(128, 147, 241, 0.3);
+.reviews {
+  background-color: #D4C2E2; /* lavender */
   color: #161B33;
-  text-align: center;
-  font-weight: 500;
+  border-radius: 20px;
+  margin-bottom: 80px;
 }
 
 .reviews h2 {
-  font-size: 2.6rem;
-  margin-bottom: 40px;
+  font-size: 3rem;
+  margin-bottom: 50px;
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
 .review-box {
-  background-color: #8093F1;
-  margin: 20px auto 40px;
-  padding: 28px 25px;
-  border-radius: 35px;
-  box-shadow: 0 8px 25px rgba(128, 147, 241, 0.7);
+  background-color: #FFE5D1; /* soft cream */
+  margin: 25px auto 50px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.1);
   max-width: 700px;
-  color: #FFFFFF;
-  font-size: 1.4rem;
-  font-style: normal;
-  user-select: none;
-}
-
-.review-box p {
-  margin-bottom: 18px;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #474973;
 }
 
 .review-box span {
   font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
+  font-style: normal;
+  display: block;
+  margin-top: 15px;
+  color: #161B33;
 }
 
 /* Impact Section */
-section.impact {
-  background-color: #161B33;
-  color: #FFFFFF;
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto 80px;
-  border-radius: 25px;
-  box-shadow: 0 10px 35px rgba(22, 27, 51, 0.85);
-  text-align: center;
-  font-weight: 600;
+.impact {
+  background-color: #3C3F6E; /* dark navy */
+  color: #FFE5D1; /* cream */
+  border-radius: 20px;
+  padding-bottom: 80px;
 }
 
 .impact h2 {
-  font-size: 2.8rem;
-  margin-bottom: 40px;
+  font-size: 3rem;
+  margin-bottom: 50px;
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
 .impact ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.9rem;
-  line-height: 2.3;
+  list-style-type: square;
   max-width: 500px;
   margin: 0 auto;
-  letter-spacing: 0.8px;
+  font-size: 1.8rem;
+  line-height: 2.2;
+  text-align: left;
+  padding-left: 25px;
 }
 
 .impact li {
-  margin: 25px 0;
+  margin: 18px 0;
 }
 
 /* Footer */
 footer {
-  background-color: #8093F1;
-  color: #FFFFFF;
+  background-color: #2B2948;
+  color: #FFE5D1;
   text-align: center;
-  padding: 35px 20px;
+  padding: 40px 20px;
   font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
   user-select: none;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #FFFFFF;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #8093F1;
-  border-radius: 20px;
-  border: 3px solid #FFFFFF;
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  header.hero {
+    font-size: 2.5rem;
+  }
+  .main-button {
+    font-size: 1.3rem;
+    padding: 14px 28px;
+    min-width: 130px;
+  }
+  .reviews h2, .impact h2 {
+    font-size: 2.2rem;
+  }
+  .review-box {
+    font-size: 1.3rem;
+    padding: 25px 20px;
+  }
+  .impact ul {
+    font-size: 1.4rem;
+  }
 }
