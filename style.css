@@ -62,7 +62,8 @@ header.banner p {
 
 .main-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(90, 112, 212, 0.6);
+  font-size: 1.7rem;
+  color:rgb(255, 255, 255)e;
 }
 
 /* Navigation Bar */
