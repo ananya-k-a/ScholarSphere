@@ -11,7 +11,7 @@ html, body {
 
 /* Hero Section */
 header.hero {
-  background-color: #7B80B4;
+  background-color: #8093F1; /* bright vibrant blue */
   color: #FFE5D1;
   padding: 80px 20px;
   text-align: center;
@@ -41,8 +41,8 @@ p {
 }
 
 .main-button {
-  background-color: #D4C2E2;
-  color: #3C3F6E;
+  background-color: #A9B8FF; /* lighter baby blue */
+  color: #161B33;
   padding: 18px 36px;
   font-size: 1.5rem;
   border: none;
@@ -51,13 +51,15 @@ p {
   transition: all 0.3s ease;
   min-width: 140px;
   font-weight: 700;
-  box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 2px 4px 12px rgba(128,147,241,0.5);
   font-family: 'Baloo 2', cursive;
 }
 
 .main-button:hover {
-  background-color: #E8D6F4;
+  background-color: #5577F6; /* deeper electric blue on hover */
+  color: #FFE5D1;
   transform: scale(1.1);
+  box-shadow: 0 0 12px 4px #8093F1;
 }
 
 /* Sections style */
@@ -69,7 +71,8 @@ section {
 }
 
 .reviews {
-  background-color: #D4C2E2;
+  background-color: #A9B8FF; /* light pastel blue background */
+  color: #161B33;
 }
 
 .reviews h2,
@@ -84,7 +87,7 @@ section {
   margin: 20px auto 40px;
   padding: 30px 25px;
   border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 15px rgba(128,147,241,0.3);
   max-width: 700px;
   font-family: 'Baloo 2', cursive;
   font-weight: 600;
@@ -104,7 +107,7 @@ section {
 
 /* Impact Section */
 .impact {
-  background-color: #3C3F6E;
+  background-color: #5577F6; /* vibrant medium blue */
   color: #FFE5D1;
 }
 
@@ -125,7 +128,7 @@ section {
 
 /* Footer */
 footer {
-  background-color: #2B2948;
+  background-color: #161B33; /* deep midnight blue */
   color: #FFE5D1;
   text-align: center;
   padding: 40px 20px;
