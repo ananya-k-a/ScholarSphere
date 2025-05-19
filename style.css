@@ -2,42 +2,43 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
-  background-color: #0D0C1D; /* Very dark navy background for contrast */
-  color: #F1DAC4; /* Light warm cream text for readability */
+  font-family: 'Fredoka One', cursive; /* bubble font */
+  background-color: #FFFFFF; /* bright white background */
+  color: #161B33; /* dark navy for text */
   scroll-behavior: smooth;
 }
 
-/* Banner (thin top header) */
+/* Banner */
 header.banner {
-  background-color: #8093F1; /* Bright vibrant blue */
-  padding: 15px 20px;
+  background-color: #8093F1; /* bright blue */
+  padding: 20px 0;
   text-align: center;
-  box-shadow: 0 3px 10px rgba(128,147,241,0.6);
+  box-shadow: 0 4px 10px rgba(128,147,241,0.7);
 }
 
 header.banner h1 {
   margin: 0;
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: #FFFFFF; /* White text on bright blue */
-  letter-spacing: 1.5px;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #FFFFFF;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  user-select: none;
 }
 
-/* Intro section (description + buttons) */
+/* Intro Section */
 .intro-section {
   max-width: 900px;
-  margin: 40px auto 80px;
+  margin: 50px auto 80px;
   text-align: center;
   padding: 0 20px;
 }
 
 .intro-section p {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   margin-bottom: 40px;
-  font-weight: 600;
-  color: #A69CAC; /* Slightly muted warm gray to not overpower banner */
+  font-weight: 500;
+  color: #161B33;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -52,93 +53,98 @@ header.banner h1 {
 }
 
 .main-button {
-  background-color: #8093F1; /* bright vibrant blue */
-  color: #F1DAC4; /* light cream */
+  background-color: #8093F1;
+  color: #FFFFFF;
   padding: 18px 36px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(128, 147, 241, 0.5);
+  box-shadow: 0 6px 20px rgba(128, 147, 241, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-width: 150px;
-  letter-spacing: 1px;
+  min-width: 160px;
+  letter-spacing: 1.2px;
+  user-select: none;
 }
 
 .main-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(128, 147, 241, 0.8);
+  box-shadow: 0 10px 30px rgba(128, 147, 241, 0.85);
 }
 
 /* Reviews Section */
 section.reviews {
-  background-color: #474973; /* Medium dark indigo */
+  background-color: #f0f4ff; /* very light blue for subtle contrast */
   padding: 80px 20px;
   max-width: 900px;
   margin: 0 auto 80px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(71, 73, 115, 0.8);
-  color: #F1DAC4;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(128, 147, 241, 0.3);
+  color: #161B33;
   text-align: center;
+  font-weight: 500;
 }
 
 .reviews h2 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   margin-bottom: 40px;
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .review-box {
-  background-color: #8093F1; /* bright blue */
+  background-color: #8093F1;
   margin: 20px auto 40px;
-  padding: 30px 25px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(128, 147, 241, 0.5);
+  padding: 28px 25px;
+  border-radius: 35px;
+  box-shadow: 0 8px 25px rgba(128, 147, 241, 0.7);
   max-width: 700px;
-  color: #0D0C1D; /* dark text inside bright box */
-  font-weight: 600;
-  font-size: 1.5rem;
+  color: #FFFFFF;
+  font-size: 1.4rem;
   font-style: normal;
+  user-select: none;
 }
 
 .review-box p {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  font-weight: 600;
 }
 
 .review-box span {
   font-weight: 700;
   font-size: 1.3rem;
-  color: #161B33; /* darker navy for name */
+  letter-spacing: 1px;
 }
 
 /* Impact Section */
 section.impact {
-  background-color: #161B33; /* very dark navy */
-  color: #F1DAC4;
+  background-color: #161B33;
+  color: #FFFFFF;
   padding: 80px 20px;
   max-width: 900px;
   margin: 0 auto 80px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(22, 27, 51, 0.9);
+  border-radius: 25px;
+  box-shadow: 0 10px 35px rgba(22, 27, 51, 0.85);
   text-align: center;
+  font-weight: 600;
 }
 
 .impact h2 {
   font-size: 2.8rem;
   margin-bottom: 40px;
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .impact ul {
   list-style: none;
   padding: 0;
   font-size: 1.9rem;
-  line-height: 2;
-  max-width: 450px;
+  line-height: 2.3;
+  max-width: 500px;
   margin: 0 auto;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .impact li {
@@ -147,27 +153,27 @@ section.impact {
 
 /* Footer */
 footer {
-  background-color: #161B33;
-  color: #8093F1;
+  background-color: #8093F1;
+  color: #FFFFFF;
   text-align: center;
-  padding: 40px 20px;
+  padding: 35px 20px;
   font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  border-top: 2px solid #8093F1;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  user-select: none;
 }
 
-/* Scrollbar styling for webkit browsers */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0D0C1D;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #8093F1;
   border-radius: 20px;
-  border: 3px solid #0D0C1D;
+  border: 3px solid #FFFFFF;
 }
