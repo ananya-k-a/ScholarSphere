@@ -12,30 +12,31 @@ html, body {
 }
 
 /* Banner / Thin header */
-header.hero {
+header.banner {
   background-color: #8093F1; /* bright vibrant blue */
   color: white;
-  padding: 20px 0;
+  padding: 40px 20px 30px; /* more padding for space */
   text-align: center;
-  font-size: 3.5rem;
-  letter-spacing: 3px;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
   font-weight: normal;
   border-bottom: 4px solid #474973; /* darker accent line */
   user-select: none;
 }
 
-/* Description and buttons container below banner */
-.description-container {
-  background-color: #ffffff;
-  padding: 30px 20px 60px 20px;
-  text-align: center;
+header.banner h1 {
+  margin-bottom: 0.3em;
+  font-weight: 700;
 }
 
-.description-container p {
+header.banner p {
   font-size: 1.6rem;
-  color: #474973; /* medium blue */
-  margin: 15px auto 40px;
-  max-width: 600px;
+  margin-top: 0;
+  font-weight: 400;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #E3E7FF; /* lighter blue for subtitle */
 }
 
 /* Buttons container */
@@ -44,13 +45,14 @@ header.hero {
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
 .main-button {
   background-color: #8093F1; /* bright blue */
   color: white;
   padding: 18px 36px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -66,20 +68,83 @@ header.hero {
   box-shadow: 0 8px 25px rgba(90, 112, 212, 0.6);
 }
 
-/* Sections style */
-section {
-  padding: 70px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+/* Navigation Bar */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #474973; /* dark blue */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
 }
 
-/* Reviews Section */
+nav.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 0;
+  gap: 40px;
+}
+
+nav.navbar a {
+  color: #E3E7FF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+nav.navbar a:hover,
+nav.navbar a:focus {
+  color: #8093F1;
+  outline: none;
+}
+
+/* Content Sections */
+.content-section {
+  padding: 70px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.content-section p {
+  font-size: 1.6rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #474973;
+}
+
+.item-list {
+  list-style-type: disc;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  color: #161B33;
+}
+
+.item-list li {
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+/* Testimonials Carousel Section */
 .reviews {
   background-color: #D4C2E2; /* lavender */
   color: #161B33;
   border-radius: 20px;
-  margin-bottom: 80px;
+  margin: 80px auto 80px;
+  padding: 60px 20px;
+  max-width: 900px;
+  text-align: center;
 }
 
 .reviews h2 {
@@ -88,19 +153,25 @@ section {
   font-weight: 700;
 }
 
-.review-box {
-  background-color: #FFE5D1; /* soft cream */
-  margin: 25px auto 50px;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 7px 20px rgba(0,0,0,0.1);
+.review {
+  display: none;
   max-width: 700px;
+  margin: 0 auto 40px;
   font-size: 1.6rem;
   font-style: italic;
   color: #474973;
+  background-color: #FFE5D1; /* soft cream */
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-.review-box span {
+.review.active {
+  display: block;
+}
+
+.review span {
   font-weight: 700;
   font-style: normal;
   display: block;
@@ -108,32 +179,58 @@ section {
   color: #161B33;
 }
 
-/* Impact Section */
-.impact {
-  background-color: #3C3F6E; /* dark navy */
-  color: #FFE5D1; /* cream */
-  border-radius: 20px;
-  padding-bottom: 80px;
+/* Carousel controls */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
 }
 
-.impact h2 {
-  font-size: 3rem;
-  margin-bottom: 50px;
-  font-weight: 700;
+.carousel-controls button {
+  background-color: #8093F1;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.impact ul {
-  list-style-type: square;
-  max-width: 500px;
+.carousel-controls button:hover {
+  background-color: #5A70D4;
+}
+
+/* Contact Section */
+#contact form {
+  max-width: 600px;
   margin: 0 auto;
-  font-size: 1.8rem;
-  line-height: 2.2;
-  text-align: left;
-  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.impact li {
-  margin: 18px 0;
+#contact input, #contact textarea {
+  padding: 15px;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  resize: vertical;
+  font-family: 'Fredoka One', cursive;
+}
+
+#contact button.main-button {
+  max-width: 200px;
+  align-self: center;
+}
+
+/* Form message */
+.form-message {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #5A70D4;
+  text-align: center;
 }
 
 /* Footer */
@@ -141,29 +238,39 @@ footer {
   background-color: #2B2948;
   color: #FFE5D1;
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 20px;
   font-size: 1.2rem;
   user-select: none;
 }
 
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width: 600px) {
-  header.hero {
-    font-size: 2.5rem;
+  header.banner {
+    font-size: 2rem;
+    padding: 30px 20px 20px;
+  }
+  nav.navbar ul {
+    gap: 20px;
+  }
+  nav.navbar a {
+    font-size: 1.1rem;
   }
   .main-button {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding: 14px 28px;
     min-width: 130px;
   }
-  .reviews h2, .impact h2 {
+  .reviews h2 {
     font-size: 2.2rem;
   }
-  .review-box {
+  .review {
     font-size: 1.3rem;
     padding: 25px 20px;
   }
-  .impact ul {
-    font-size: 1.4rem;
+  .content-section h2 {
+    font-size: 2rem;
+  }
+  .item-list {
+    font-size: 1.2rem;
   }
 }
