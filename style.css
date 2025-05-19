@@ -118,3 +118,29 @@ footer {
   padding: 40px 20px;
   font-size: 1.1rem;
 }
+
+.button-group {
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.main-button {
+  background-color: #D4C2E2;
+  color: #3C3F6E;
+  padding: 16px 32px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.main-button:hover {
+  background-color: #E8D6F4;
+  transform: scale(1.08);
+}
+
