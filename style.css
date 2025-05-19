@@ -1,73 +1,82 @@
+/* Color Palette */
+:root {
+  --peach: #F1DAC4;
+  --lavender: #A69CAC;
+  --indigo: #474973;
+  --midnight: #161B33;
+  --darkest: #0D0C1D;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--peach);
+  color: var(--midnight);
 }
 
 header {
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px;
-  text-align: center;
+  background-color: var(--darkest);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--peach);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 nav a {
-  color: white;
+  margin-left: 1rem;
   text-decoration: none;
-  margin: 0 10px;
+  color: var(--lavender);
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: var(--peach);
 }
 
-main {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--indigo);
+  color: var(--peach);
 }
 
-section {
-  margin-bottom: 40px;
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-input[type="text"] {
-  width: 70%;
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
+.cta-button {
+  background-color: var(--lavender);
+  color: var(--darkest);
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
   border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
-#results p {
-  background-color: white;
-  padding: 10px;
-  margin: 5px 0;
-  border-left: 5px solid #4CAF50;
-  border-radius: 3px;
+.cta-button:hover {
+  background-color: var(--peach);
+  color: var(--midnight);
 }
 
 footer {
+  background-color: var(--darkest);
+  color: var(--lavender);
   text-align: center;
-  padding: 15px;
-  background-color: #ddd;
-  font-size: 14px;
+  padding: 1rem;
+  font-size: 0.9rem;
 }
