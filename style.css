@@ -1,16 +1,12 @@
-/* Import the Fredoka One font */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
 /* Reset and base styles */
 html, body {
   margin: 0;
   padding: 0;
   height: auto;
-  font-family: 'Fredoka One', cursive; /* chunky bubbly font */
+  font-family: 'Baloo 2', cursive;
   background-color: #FFE5D1;
   color: #2B2948;
   scroll-behavior: smooth;
-  font-weight: 700; /* make text chunkier */
 }
 
 /* Hero Section */
@@ -24,39 +20,47 @@ header.hero {
 }
 
 h1 {
-  font-size: 4rem; /* bigger and chunkier */
+  font-size: 3.5rem;
   margin-bottom: 20px;
-  line-height: 1.1;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 p {
-  font-size: 1.8rem; /* bigger, chunkier paragraph */
+  font-size: 1.5rem;
   max-width: 600px;
-  margin: 0 auto 40px;
-  font-weight: 600;
+  margin: 0 auto;
 }
 
-.cta-button, .main-button {
+.button-group {
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.main-button {
   background-color: #D4C2E2;
   color: #3C3F6E;
-  padding: 18px 40px;
-  border: none;
-  border-radius: 20px;
+  padding: 18px 36px;
   font-size: 1.5rem;
+  border: none;
+  border-radius: 16px;
   cursor: pointer;
-  margin-top: 0;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  font-weight: 700; /* chunkier button text */
-  box-shadow: 0 6px 12px rgba(212, 194, 226, 0.6);
+  transition: all 0.3s ease;
+  min-width: 140px;
+  font-weight: 700;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+  font-family: 'Baloo 2', cursive;
 }
 
-.cta-button:hover, .main-button:hover {
+.main-button:hover {
   background-color: #E8D6F4;
-  transform: scale(1.12); /* bigger on hover */
-  box-shadow: 0 8px 20px rgba(232, 214, 244, 0.9);
+  transform: scale(1.1);
 }
 
-/* Sections */
+/* Sections style */
 section {
   padding: 80px 20px;
   text-align: center;
@@ -68,8 +72,9 @@ section {
   background-color: #D4C2E2;
 }
 
-.reviews h2, .impact h2 {
-  font-size: 3rem;
+.reviews h2,
+.impact h2 {
+  font-size: 2.8rem;
   margin-bottom: 40px;
   font-weight: 700;
 }
@@ -77,22 +82,24 @@ section {
 .review-box {
   background-color: #FFE5D1;
   margin: 20px auto 40px;
-  padding: 35px 30px;
-  border-radius: 25px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
   max-width: 700px;
+  font-family: 'Baloo 2', cursive;
   font-weight: 600;
   font-size: 1.6rem;
-}
-
-.review-box p {
   font-style: italic;
+  color: #474973;
 }
 
 .review-box span {
-  color: #474973;
   font-weight: 700;
   font-size: 1.4rem;
+  color: #161B33;
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
 }
 
 /* Impact Section */
@@ -104,15 +111,16 @@ section {
 .impact ul {
   list-style: none;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.8;
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
+  font-weight: 700;
+  font-family: 'Baloo 2', cursive;
 }
 
 .impact li {
-  margin: 30px 0;
-  font-weight: 700;
+  margin: 25px 0;
 }
 
 /* Footer */
@@ -121,14 +129,7 @@ footer {
   color: #FFE5D1;
   text-align: center;
   padding: 40px 20px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-}
-
-.button-group {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  font-family: 'Baloo 2', cursive;
 }
