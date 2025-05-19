@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Opportunity Platform</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="hero">
-    <h1>Opportunity Platform</h1>
-    <p>Your go-to hub for student scholarships, internships, and more.</p>
-    <a href="#" class="cta-button">Get Started</a>
-  </header>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #F1DAC4;
+  color: #0D0C1D;
+}
 
-  <section class="reviews">
-    <h2>Student Testimonials</h2>
-    <div class="review">
-      <p>"I found a summer internship through this site that changed my career path!"</p>
-      <span>– Priya, 11th grade</span>
-    </div>
-    <div class="review">
-      <p>"Super easy to use and full of great programs for teens!"</p>
-      <span>– Jordan, 10th grade</span>
-    </div>
-  </section>
+.hero {
+  background-color: #474973;
+  color: #F1DAC4;
+  padding: 80px 20px;
+  text-align: center;
+}
 
-  <section class="impact">
-    <h2>Our Impact</h2>
-    <ul>
-      <li><strong>1,200+</strong> users helped</li>
-      <li><strong>300+</strong> opportunities listed</li>
-      <li><strong>90%</strong> of users said it saved them time</li>
-    </ul>
-  </section>
+.cta-button {
+  background-color: #A69CAC;
+  color: #161B33;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 20px;
+}
 
-  <footer>
-    <p>&copy; 2025 Opportunity Platform. All rights reserved.</p>
-  </footer>
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.reviews {
+  background-color: #A69CAC;
+  color: #F1DAC4;
+}
+
+.review {
+  margin: 20px auto;
+  max-width: 600px;
+  font-style: italic;
+}
+
+.impact {
+  background-color: #161B33;
+  color: #F1DAC4;
+}
+
+.impact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.impact li {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+footer {
+  background-color: #0D0C1D;
+  color: #F1DAC4;
+  padding: 20px;
+  text-align: center;
+}

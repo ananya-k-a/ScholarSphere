@@ -1,26 +1,44 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #F1DAC4;
-  color: #0D0C1D;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FFE5D1;
+  color: #2B2948;
+  scroll-behavior: smooth;
 }
 
-.hero {
-  background-color: #474973;
-  color: #F1DAC4;
-  padding: 80px 20px;
+header.hero {
+  background-color: #7B80B4;
+  color: #FFE5D1;
+  padding: 60px 20px;
   text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 .cta-button {
-  background-color: #A69CAC;
-  color: #161B33;
+  background-color: #D4C2E2;
+  color: #3C3F6E;
   padding: 12px 24px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  display: inline-block;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
   margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #E8D6F4;
+  transform: scale(1.05);
 }
 
 section {
@@ -29,34 +47,42 @@ section {
 }
 
 .reviews {
-  background-color: #A69CAC;
-  color: #F1DAC4;
+  background-color: #D4C2E2;
 }
 
-.review {
+.review-box {
+  background-color: #FFE5D1;
   margin: 20px auto;
   max-width: 600px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.review-box p {
   font-style: italic;
+  margin-bottom: 10px;
 }
 
 .impact {
-  background-color: #161B33;
-  color: #F1DAC4;
+  background-color: #3C3F6E;
+  color: #FFE5D1;
 }
 
 .impact ul {
   list-style: none;
   padding: 0;
+  font-size: 1.2rem;
 }
 
 .impact li {
-  margin: 10px 0;
-  font-size: 1.2em;
+  margin: 15px 0;
 }
 
 footer {
-  background-color: #0D0C1D;
-  color: #F1DAC4;
-  padding: 20px;
+  background-color: #2B2948;
+  color: #FFE5D1;
   text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
 }
