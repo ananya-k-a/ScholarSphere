@@ -49,7 +49,6 @@ header.banner p {
 }
 
 .main-button {
-  background-color: #474973; /* bright blue */
   color: white;
   padding: 18px 36px;
   font-size: 1.4rem;
@@ -58,12 +57,10 @@ header.banner p {
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 160px;
-  box-shadow: 0 5px 15px rgba(128, 147, 241, 0.4);
   user-select: none;
 }
 
 .main-button:hover {
-  background-color: #5A70D4; /* slightly darker blue */
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(90, 112, 212, 0.6);
 }
