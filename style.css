@@ -1,88 +1,120 @@
-body {
+/* Reset any unwanted height constraints */
+html, body {
   margin: 0;
+  padding: 0;
+  height: auto; /* allow height to grow */
   font-family: 'Quicksand', sans-serif;
   background-color: #FFE5D1;
   color: #2B2948;
   scroll-behavior: smooth;
 }
 
+/* Hero Section */
 header.hero {
   background-color: #7B80B4;
   color: #FFE5D1;
-  padding: 60px 20px;
+  padding: 80px 20px; /* bigger padding for spacious look */
   text-align: center;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3.5rem; /* bigger heading */
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* bigger paragraph */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .cta-button {
   background-color: #D4C2E2;
   color: #3C3F6E;
-  padding: 12px 24px;
+  padding: 18px 36px; /* bigger button */
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 16px;
+  font-size: 1.3rem;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 30px;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   background-color: #E8D6F4;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
+/* Sections style */
 section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .reviews {
   background-color: #D4C2E2;
 }
 
+.reviews h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
 .review-box {
   background-color: #FFE5D1;
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 20px auto 40px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  max-width: 700px;
 }
 
 .review-box p {
   font-style: italic;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
+.review-box span {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #474973;
+}
+
+/* Impact Section */
 .impact {
   background-color: #3C3F6E;
   color: #FFE5D1;
 }
 
+.impact h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
 .impact ul {
   list-style: none;
   padding: 0;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .impact li {
-  margin: 15px 0;
+  margin: 25px 0;
 }
 
+/* Footer */
 footer {
   background-color: #2B2948;
   color: #FFE5D1;
   text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
+  padding: 40px 20px;
+  font-size: 1.1rem;
 }
