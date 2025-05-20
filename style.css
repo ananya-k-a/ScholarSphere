@@ -95,7 +95,7 @@ nav.navbar a {
 nav.navbar a:hover,
 nav.navbar a:focus {
   color: #ebedf8;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   outline: none;
 }
 
@@ -136,11 +136,11 @@ nav.navbar a:focus {
 
 /* Testimonials Carousel Section */
 .reviews {
-  /* No background color */
+  background-color: #d3d8f6;
   color: #161B33;
   border-radius: 20px;
   margin: 80px auto 80px;
-  padding: 60px 20px 80px; /* extra bottom padding for controls */
+  padding: 60px 20px; /* extra bottom padding for controls */
   max-width: 900px;
   text-align: center;
   position: relative;
