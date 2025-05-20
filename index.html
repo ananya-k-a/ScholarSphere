@@ -2,97 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opportunity Finder</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScholarSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Banner with thin header -->
+  <header class="banner">
+    <h1>Welcome to ScholarSphere</h1>
+    <p>Your one-stop place for scholarships, internships, and competitions</p>
+  </header>
 
-  <!-- Navigation Bar -->
+
+  <!-- Sticky Navigation Bar -->
   <nav class="navbar">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="scholarships.html">Scholarships</a></li>
-      <li><a href="internships.html">Internships</a></li>
-      <li><a href="competitions.html">Competitions</a></li>
-      <li><a href="summer.html">Summer Programs</a></li>
+      <li><a href="scholarships.html" class="main-button">Scholarship</a></li>
+      <li><a href="internships.html" class="main-button">Internships</a></li>
+      <li><a href="competitions.html" class="main-button">Competitions</a></li>
+      <li><a href="summer-programs.html" class="main-button">Summer Programs</a></li>
     </ul>
   </nav>
 
-  <!-- Banner Header -->
-  <header class="banner">
-    <h1>Opportunity Finder</h1>
-    <p>Helping students discover scholarships, internships, competitions, and summer programs</p>
-
-    <div class="button-group">
-      <a href="scholarships.html"><button class="main-button" style="background-color: #F25C54;">Scholarships</button></a>
-      <a href="internships.html"><button class="main-button" style="background-color: #70C1B3;">Internships</button></a>
-      <a href="competitions.html"><button class="main-button" style="background-color: #FFE066;">Competitions</button></a>
-      <a href="summer.html"><button class="main-button" style="background-color: #247BA0;">Summer Programs</button></a>
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section class="content-section">
-    <h2>What We Do</h2>
-    <p>We make it easy for middle and high school students to find valuable academic and career-building opportunities all in one place.</p>
+  <!-- Scholarships Section -->
+  <section id="scholarships" class="content-section">
+    <h2>Scholarships</h2>
+    <p>Find scholarships tailored just for you! Filter by deadline, amount, and category.</p>
     <ul class="item-list">
-      <li>Search scholarships that fit your goals and background</li>
-      <li>Explore internship programs across STEM, business, and more</li>
-      <li>Find national and international competitions for your talents</li>
-      <li>Discover summer programs to boost your skills and resume</li>
+      <li><strong>Future Leaders Scholarship</strong> - Deadline: June 30, 2025</li>
+      <li><strong>STEM Innovators Award</strong> - Deadline: July 15, 2025</li>
+      <li><strong>Community Service Grant</strong> - Deadline: August 10, 2025</li>
     </ul>
   </section>
 
-  <!-- Reviews Section -->
+  <!-- Internships Section -->
+  <section id="internships" class="content-section">
+    <h2>Internships</h2>
+    <p>Discover internships to boost your career and gain hands-on experience.</p>
+    <ul class="item-list">
+      <li><strong>Tech Startup Internship</strong> - Apply by June 10, 2025</li>
+      <li><strong>Marketing Summer Internship</strong> - Apply by July 1, 2025</li>
+      <li><strong>Environmental Research Internship</strong> - Apply by July 20, 2025</li>
+    </ul>
+  </section>
+
+  <!-- Competitions Section -->
+  <section id="competitions" class="content-section">
+    <h2>Competitions</h2>
+    <p>Participate in exciting competitions and challenge yourself.</p>
+    <ul class="item-list">
+      <li><strong>National Science Bowl</strong> - Registration closes May 30, 2025</li>
+      <li><strong>Creative Writing Contest</strong> - Submit by June 15, 2025</li>
+      <li><strong>Robotics Challenge</strong> - Sign up by July 5, 2025</li>
+    </ul>
+  </section>
+
+  <!-- Testimonials Carousel Section -->
   <section class="reviews">
-    <h2>What Students Say</h2>
-
-    <div class="review active">
-      “This platform helped me find a summer program I never would’ve known about!”
-      <span>– Priya R.</span>
+    <h2>What People Are Saying</h2>
+    <div class="carousel">
+      <div class="review active">
+        <p>"ScholarSphere helped me find the perfect scholarship to pay for college. So grateful!"</p>
+        <span>- Priya S.</span>
+      </div>
+      <div class="review">
+        <p>"I landed an amazing internship thanks to ScholarSphere's resources."</p>
+        <span>- James K.</span>
+      </div>
+      <div class="review">
+        <p>"The competitions section pushed me to challenge myself and grow."</p>
+        <span>- Mia R.</span>
+      </div>
     </div>
-    <div class="review">
-      “Super organized and easy to navigate. I found a full scholarship I actually got!” 
-      <span>– Jordan M.</span>
-    </div>
-    <div class="review">
-      “The internship search made me feel way less overwhelmed. Thank you!” 
-      <span>– Aiden L.</span>
-    </div>
-
     <div class="carousel-controls">
-      <button onclick="showReview(0)">1</button>
-      <button onclick="showReview(1)">2</button>
-      <button onclick="showReview(2)">3</button>
+      <button id="prevBtn">&#8592;</button>
+      <button id="nextBtn">&#8594;</button>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="content-section" id="contact">
+  <section id="contact" class="content-section">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="main-button" style="background-color: #8093F1;">Send</button>
+    <p>Have questions or want to suggest an opportunity? Send us a message!</p>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="main-button">Send</button>
     </form>
-    <div class="form-message">We’ll get back to you soon!</div>
+    <p id="formMessage" class="form-message"></p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Opportunity Finder. All rights reserved.
+    <p>© 2025 ScholarSphere. All rights reserved.</p>
   </footer>
 
   <script>
-    const reviews = document.querySelectorAll(".review");
+    // Smooth scroll function for buttons
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Carousel logic
+    const reviews = document.querySelectorAll('.review');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
     function showReview(index) {
-      reviews.forEach((rev, i) => {
-        rev.classList.toggle("active", i === index);
+      reviews.forEach((review, i) => {
+        review.classList.toggle('active', i === index);
       });
     }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+      showReview(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % reviews.length;
+      showReview(currentIndex);
+    });
+
+    // Contact form submission
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
+      form.reset();
+    });
   </script>
 </body>
 </html>
