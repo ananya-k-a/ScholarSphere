@@ -1,34 +1,58 @@
+// Carousel logic
 const reviews = document.querySelectorAll('.review');
-const prevBtn = document.querySelector('.carousel-controls .prev');
-const nextBtn = document.querySelector('.carousel-controls .next');
-
 let currentIndex = 0;
+let intervalId;
 
-function updateReviews() {
-  const total = reviews.length;
-
+function showReview(index, direction = 'right') {
   reviews.forEach((review, i) => {
-    review.classList.remove('prev', 'active', 'next');
-    review.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+    review.classList.remove('active');
+    if (i === index) {
+      review.classList.add('active');
+    }
   });
-
-  const prevIndex = (currentIndex - 1 + total) % total;
-  const nextIndex = (currentIndex + 1) % total;
-
-  reviews[prevIndex].classList.add('prev');
-  reviews[currentIndex].classList.add('active');
-  reviews[nextIndex].classList.add('next');
 }
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-  updateReviews();
-});
-
-nextBtn.addEventListener('click', () => {
+function nextReview() {
   currentIndex = (currentIndex + 1) % reviews.length;
-  updateReviews();
-});
+  showReview(currentIndex, 'right');
+}
 
-// Initialize carousel on page load
-updateReviews();
+function prevReview() {
+  currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+  showReview(currentIndex, 'left');
+}
+
+function startCarousel() {
+  intervalId = setInterval(nextReview, 5000); // rotate every 5 seconds
+}
+
+function stopCarousel() {
+  clearInterval(intervalId);
+}
+
+// Initial setup
+showReview(currentIndex);
+startCarousel();
+
+// If you want to add buttons for manual navigation, add event listeners here:
+// Example (assuming you add these buttons in your HTML):
+// document.getElementById('nextBtn').addEventListener('click', () => {
+//   stopCarousel();
+//   nextReview();
+//   startCarousel();
+// });
+// document.getElementById('prevBtn').addEventListener('click', () => {
+//   stopCarousel();
+//   prevReview();
+//   startCarousel();
+// });
+
+// Contact form submission handling
+const form = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
+  form.reset();
+});

@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<script src="script.js"></script>
 <body>
   <!-- Banner with thin header -->
   <header class="banner">
@@ -58,24 +59,28 @@
   </section>
 
   <!-- Testimonials Carousel Section -->
-<section class="reviews">
-  <h2>What People Are Saying</h2>
-  <div class="carousel">
-    <div class="review">
-      <p>"ScholarSphere helped me find the perfect scholarship to pay for college. So grateful!"</p>
-      <span>- Priya S.</span>
+  <section class="reviews">
+    <h2>What People Are Saying</h2>
+    <div class="carousel">
+      <div class="review active">
+        <p>"ScholarSphere helped me find the perfect scholarship to pay for college. So grateful!"</p>
+        <span>- Priya S.</span>
+      </div>
+      <div class="review">
+        <p>"I landed an amazing internship thanks to ScholarSphere's resources."</p>
+        <span>- James K.</span>
+      </div>
+      <div class="review">
+        <p>"The competitions section pushed me to challenge myself and grow."</p>
+        <span>- Mia R.</span>
+      </div>
     </div>
-    <div class="review">
-      <p>"I landed an amazing internship thanks to ScholarSphere's resources."</p>
-      <span>- James K.</span>
+    <div class="carousel-controls">
+      <button id="prevBtn" aria-label="Previous review">&lt;</button>
+      <button id="nextBtn" aria-label="Next review">&gt;</button>
     </div>
-    <div class="review">
-      <p>"The competitions section pushed me to challenge myself and grow."</p>
-      <span>- Mia R.</span>
-    </div>
-  </div>
-  
-</section>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="content-section" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Contact Us</h2>
@@ -93,59 +98,6 @@
     <p>© 2025 ScholarSphere. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Carousel logic
-    const reviews = document.querySelectorAll('.review');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    let intervalId;
-
-    function showReview(index, direction = 'right') {
-  reviews.forEach((review, i) => {
-    review.classList.remove('active', 'slide-left', 'slide-right');
-    if (i === index) {
-      review.classList.add('active');
-    } else {
-      review.classList.add(direction === 'right' ? 'slide-left' : 'slide-right');
-    }
-  });
-}
-
-function nextReview() {
-  const previousIndex = currentIndex;
-  currentIndex = (currentIndex + 1) % reviews.length;
-  showReview(currentIndex, 'right');
-}
-
-function prevReview() {
-  const previousIndex = currentIndex;
-  currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-  showReview(currentIndex, 'left');
-}
-
-
-    function startCarousel() {
-      intervalId = setInterval(nextReview, 5000); // Rotate every 5 seconds
-    }
-
-    function stopCarousel() {
-      clearInterval(intervalId);
-    }
-
-    // Initial setup
-    showReview(currentIndex);
-    startCarousel();
-
-    // Contact form submission
-    const form = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
-      form.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
