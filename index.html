@@ -98,37 +98,64 @@
   </footer>
 
   <script>
-    // Carousel logic
-    const reviews = document.querySelectorAll('.review');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
+  // Carousel logic
+  const reviews = document.querySelectorAll('.review');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0;
+  let intervalId;
 
-    function showReview(index) {
-      reviews.forEach((review, i) => {
-        review.classList.toggle('active', i === index);
-      });
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-      showReview(currentIndex);
+  function showReview(index) {
+    reviews.forEach((review, i) => {
+      review.classList.toggle('active', i === index);
     });
+  }
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % reviews.length;
-      showReview(currentIndex);
-    });
+  function nextReview() {
+    currentIndex = (currentIndex + 1) % reviews.length;
+    showReview(currentIndex);
+  }
 
-    // Contact form submission
-    const form = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+  function prevReview() {
+    currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+    showReview(currentIndex);
+  }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
-      form.reset();
-    });
-  </script>
+  function startCarousel() {
+    intervalId = setInterval(nextReview, 5000); // Rotate every 5 seconds
+  }
+
+  function stopCarousel() {
+    clearInterval(intervalId);
+  }
+
+  // Initial setup
+  showReview(currentIndex);
+  startCarousel();
+
+  // Button controls with pause
+  nextBtn.addEventListener('click', () => {
+    stopCarousel();
+    nextReview();
+    startCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    stopCarousel();
+    prevReview();
+    startCarousel();
+  });
+
+  // Contact form submission
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
+    form.reset();
+  });
+</script>
+
 </body>
 </html>
