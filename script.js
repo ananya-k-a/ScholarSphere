@@ -1,32 +1,23 @@
-const scholarships = [
-  { name: "Tech Innovators Scholarship", eligibility: "Open to all students" },
-  { name: "Non-Citizen Support Fund", eligibility: "Legal non-citizens only" },
-  { name: "Women in Engineering Grant", eligibility: "Female students" },
-  { name: "Community Leadership Award", eligibility: "Students involved in community service" },
-  { name: "STEM Excellence Scholarship", eligibility: "STEM majors only" },
-];
+const reviews = document.querySelectorAll('.review');
+let current = 0;
 
-function searchScholarships() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = "";
+function showNextReview() {
+  const outgoing = reviews[current];
+  outgoing.classList.remove('active');
+  outgoing.classList.add('slide-out-left');
 
-  if (!input) {
-    resultsDiv.innerHTML = "<p>Please enter a keyword to search.</p>";
-    return;
-  }
+  current = (current + 1) % reviews.length;
 
-  const filtered = scholarships.filter(scholarship =>
-    scholarship.name.toLowerCase().includes(input)
-  );
+  const incoming = reviews[current];
+  incoming.classList.add('slide-in-right');
 
-  if (filtered.length === 0) {
-    resultsDiv.innerHTML = "<p>No scholarships found matching your search.</p>";
-  } else {
-    filtered.forEach(s => {
-      const p = document.createElement("p");
-      p.textContent = `${s.name} — Eligibility: ${s.eligibility}`;
-      resultsDiv.appendChild(p);
-    });
-  }
+  // After animation ends, cleanup classes
+  setTimeout(() => {
+    outgoing.classList.remove('slide-out-left');
+    incoming.classList.remove('slide-in-right');
+    incoming.classList.add('active');
+  }, 600); // matches CSS transition duration
 }
+
+// Example trigger
+document.querySelector('.carousel-controls button.next').addEventListener('click', showNextReview);

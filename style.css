@@ -145,60 +145,65 @@ nav.navbar a:focus {
   text-align: center;
   position: relative;
   overflow: hidden;
+  height: 220px; /* fixed height */
+  perspective: 1000px;
 }
 
 .reviews h2 {
   font-size: 3rem;
   margin-bottom: 50px;
   font-weight: 700;
+  user-select: none;
 }
 
-.carousel {
-  position: relative;
-  height: 220px; /* adjust height as needed */
-  perspective: 1000px;
-}
-
-/* Review cards */
 .review {
   position: absolute;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
+  top: 0;
+  left: 50%;
+  width: 700px;
+  max-width: 90vw;
+  padding: 35px 30px;
   font-size: 1.6rem;
   font-style: italic;
   color: #474973;
   background-color: #f2f3f6;
-  padding: 35px 30px;
   border-radius: 20px;
   box-shadow: 0 7px 20px rgba(0,0,0,0.1);
-  top: 0;
-  left: 50%;
+  transform-origin: center center;
   transform: translateX(-50%) scale(1);
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
   z-index: 1;
 }
 
-/* Active review is visible, centered and full size */
+.review span {
+  font-weight: 700;
+  font-style: normal;
+  display: block;
+  margin-top: 15px;
+  color: #161B33;
+  user-select: none;
+}
+
+/* The review currently visible */
 .review.active {
-  opacity: 1;
-  z-index: 2;
-  transform: translateX(-50%) scale(1);
-}
-
-/* Outgoing slide: slide left while shrinking */
-.review.slide-out-left {
-  opacity: 0;
-  transform: translateX(-150%) scale(0.7);
-  z-index: 1;
-}
-
-/* Incoming slide: start off right small and slide in growing */
-.review.slide-in-right {
   opacity: 1;
   transform: translateX(-50%) scale(1);
   z-index: 3;
+}
+
+/* Outgoing review slides left and shrinks */
+.review.slide-out-left {
+  opacity: 0;
+  transform: translateX(-150%) scale(0.7);
+  z-index: 2;
+}
+
+/* Incoming review slides in from right and grows */
+.review.slide-in-right {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  z-index: 4;
 }
 
 /* Carousel controls */
@@ -207,6 +212,7 @@ nav.navbar a:focus {
   justify-content: center;
   gap: 40px;
   margin-top: 10px;
+  user-select: none;
 }
 
 .carousel-controls button {
@@ -253,6 +259,7 @@ nav.navbar a:focus {
   font-weight: 600;
   color: #5A70D4;
   text-align: center;
+  user-select: none;
 }
 
 /* Footer */
@@ -271,34 +278,27 @@ footer {
     font-size: 2rem;
     padding: 30px 20px 20px;
   }
-
   nav.navbar ul {
     gap: 20px;
   }
-
   nav.navbar a {
     font-size: 1.1rem;
   }
-
   .main-button {
     font-size: 1.2rem;
     padding: 14px 28px;
     min-width: 130px;
   }
-
   .reviews h2 {
     font-size: 2.2rem;
   }
-
   .review {
     font-size: 1.3rem;
     padding: 25px 20px;
   }
-
   .content-section h2 {
     font-size: 2rem;
   }
-
   .item-list {
     font-size: 1.2rem;
   }
