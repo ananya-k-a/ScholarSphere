@@ -63,7 +63,7 @@ header.banner p {
 .main-button:hover {
   transform: scale(1.1);
   font-size: 1.7rem;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 /* Navigation Bar */
@@ -140,162 +140,182 @@ nav.navbar a:focus {
   color: #161B33;
   border-radius: 20px;
   margin: 80px auto 80px;
-  padding: 60px 20px;
+  padding: 60px 20px 80px; /* extra bottom padding for controls */
   max-width: 900px;
   text-align: center;
   position: relative;
-  height: 230px; /* fixed height for consistent sliding */
-  overflow: hidden;
-  user-select: none;
+  perspective: 1200px;
+
+  height: 200px; /* Fixed height to prevent overlap */
+  overflow: visible;
 }
 
 .reviews h2 {
   font-size: 3rem;
   margin-bottom: 50px;
   font-weight: 700;
-}
-
-.carousel {
   position: relative;
-  height: 140px;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  perspective: 800px; /* perspective for 3D effect */
+  z-index: 10;
 }
 
 .review {
   position: absolute;
-  top: 0;
+  top: 70px; /* space below heading */
   left: 50%;
-  width: 100%;
-  max-width: 700px;
-  transform-style: preserve-3d;
+  width: 650px;
+  max-width: 90vw;
   padding: 35px 30px;
   background-color: #f2f3f6;
   border-radius: 20px;
   box-shadow: 0 7px 20px rgba(0,0,0,0.1);
-  font-style: italic;
   font-size: 1.6rem;
+  font-style: italic;
   color: #474973;
+  user-select: none;
+  transform-origin: center center;
   opacity: 0;
   pointer-events: none;
-  user-select: text;
-  transform-origin: center center;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
-  will-change: transform, opacity;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+  text-align: center;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+  z-index: 1;
 }
 
-/* Active review is centered, full size and visible */
+.review span {
+  font-weight: 700;
+  font-style: normal;
+  display: block;
+  margin-top: 15px;
+  color: #161B33;
+}
+
+/* Active review is centered, fully visible */
 .review.active {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) scale(1) rotateY(0deg);
-  z-index: 2;
+  z-index: 5;
+  transform: translateX(-50%) scale(1) translateZ(0);
 }
 
-/* Slide out left: moves left, shrinks and rotates */
-.review.slide-out-left {
-  opacity: 0;
-  transform: translateX(calc(-50% - 150%)) scale(0.7) rotateY(-45deg);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Slide in right: start off right and smaller and transparent */
-.review.slide-in-right {
-  opacity: 0;
-  transform: translateX(calc(-50% + 150%)) scale(0.7) rotateY(45deg);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* When slide-in-right review becomes active, it scales up and moves to center */
-.review.slide-in-right.active {
+/* Previous review slides left and shrinks */
+.review.prev {
   opacity: 1;
-  transform: translateX(-50%) scale(1) rotateY(0deg);
-  pointer-events: auto;
-  z-index: 2;
+  pointer-events: none;
+  z-index: 3;
+  transform: translateX(calc(-150%)) scale(0.75) translateZ(-200px);
+  filter: brightness(0.8);
+}
+
+/* Next review is offscreen right, prepared for animation */
+.review.next {
+  opacity: 1;
+  pointer-events: none;
+  z-index: 3;
+  transform: translateX(calc(150%)) scale(0.75) translateZ(-200px);
+  filter: brightness(0.8);
 }
 
 /* Carousel controls */
 .carousel-controls {
-  margin-top: 40px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+  z-index: 10;
 }
 
 .carousel-controls button {
+  background-color: #8093F1;
+  border: none;
+  color: white;
   font-size: 2rem;
-  background-color: transparent;
-  border: 2px solid #161B33;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
+  padding: 8px 16px;
+  border-radius: 12px;
   cursor: pointer;
-  color: #161B33;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease;
   user-select: none;
 }
 
-.carousel-controls button:hover,
-.carousel-controls button:focus {
-  background-color: #161B33;
-  color: #D4C2E2;
-  outline: none;
+.carousel-controls button:hover {
+  background-color: #5A70D4;
 }
 
-/* Contact form styles */
-#contactForm {
+/* Contact Section */
+#contact form {
   max-width: 600px;
   margin: 0 auto;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-#contactForm input,
-#contactForm textarea {
-  width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: 2px solid #6e7bf0;
-  font-size: 1.2rem;
-  font-family: 'Fredoka One', cursive;
-  box-sizing: border-box;
-}
-
-#contactForm button {
-  width: 100%;
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 14px;
-  border: none;
-  border-radius: 20px;
-  background-color: #6e7bf0;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-
-#contactForm button:hover {
-  background-color: #575cd7;
-}
-
-.form-message {
-  text-align: center;
+#contact input, #contact textarea {
+  padding: 15px;
   font-size: 1.3rem;
-  color: #2d572d;
-  margin-top: 10px;
+  border-radius: 12px;
+  border: 1.5px solid #9a9af8;
+  resize: vertical;
+  font-family: 'Fredoka One', cursive;
+}
+
+#contact button.main-button {
+  max-width: 200px;
+  align-self: center;
+}
+
+/* Form message */
+.form-message {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #5A70D4;
+  text-align: center;
 }
 
 /* Footer */
 footer {
-  background-color: #161B33;
-  color: #d4c2e2;
+  background-color: #2B2948;
+  color: #ebeffd;
   text-align: center;
-  padding: 20px;
-  font-size: 1.1rem;
+  padding: 30px 20px;
+  font-size: 1.2rem;
   user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header.banner {
+    font-size: 2rem;
+    padding: 30px 20px 20px;
+  }
+  nav.navbar ul {
+    gap: 20px;
+  }
+  nav.navbar a {
+    font-size: 1.1rem;
+  }
+  .main-button {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+    min-width: 130px;
+  }
+  .reviews h2 {
+    font-size: 2.2rem;
+  }
+  .review {
+    font-size: 1.3rem;
+    padding: 25px 20px;
+    width: 90vw;
+    max-width: none;
+  }
+  .content-section h2 {
+    font-size: 2rem;
+  }
+  .item-list {
+    font-size: 1.2rem;
+  }
 }
