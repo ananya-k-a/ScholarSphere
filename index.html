@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ScholarSphere</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,14 +14,13 @@
     <p>Your one-stop place for scholarships, internships, and competitions</p>
   </header>
 
-
   <!-- Sticky Navigation Bar -->
   <nav class="navbar">
     <ul>
-      <li><a href="scholarships.html" class="main-button">Scholarship</a></li>
-      <li><a href="internships.html" class="main-button">Internships</a></li>
-      <li><a href="competitions.html" class="main-button">Competitions</a></li>
-      <li><a href="summer.html" class="main-button">Summer Programs</a></li>
+      <li><a href="#scholarships">Scholarships</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#competitions">Competitions</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -30,9 +29,9 @@
     <h2>Scholarships</h2>
     <p>Find scholarships tailored just for you! Filter by deadline, amount, and category.</p>
     <ul class="item-list">
-      <li><strong>Future Leaders Scholarship</strong> - Deadline: June 30, 2025</li>
-      <li><strong>STEM Innovators Award</strong> - Deadline: July 15, 2025</li>
-      <li><strong>Community Service Grant</strong> - Deadline: August 10, 2025</li>
+      <li><strong>Future Leaders Scholarship</strong> – Deadline: June 30, 2025</li>
+      <li><strong>STEM Innovators Award</strong> – Deadline: July 15, 2025</li>
+      <li><strong>Community Service Grant</strong> – Deadline: August 10, 2025</li>
     </ul>
   </section>
 
@@ -41,9 +40,9 @@
     <h2>Internships</h2>
     <p>Discover internships to boost your career and gain hands-on experience.</p>
     <ul class="item-list">
-      <li><strong>Tech Startup Internship</strong> - Apply by June 10, 2025</li>
-      <li><strong>Marketing Summer Internship</strong> - Apply by July 1, 2025</li>
-      <li><strong>Environmental Research Internship</strong> - Apply by July 20, 2025</li>
+      <li><strong>Tech Startup Internship</strong> – Apply by June 10, 2025</li>
+      <li><strong>Marketing Summer Internship</strong> – Apply by July 1, 2025</li>
+      <li><strong>Environmental Research Internship</strong> – Apply by July 20, 2025</li>
     </ul>
   </section>
 
@@ -52,9 +51,9 @@
     <h2>Competitions</h2>
     <p>Participate in exciting competitions and challenge yourself.</p>
     <ul class="item-list">
-      <li><strong>National Science Bowl</strong> - Registration closes May 30, 2025</li>
-      <li><strong>Creative Writing Contest</strong> - Submit by June 15, 2025</li>
-      <li><strong>Robotics Challenge</strong> - Sign up by July 5, 2025</li>
+      <li><strong>National Science Bowl</strong> – Registration closes May 30, 2025</li>
+      <li><strong>Creative Writing Contest</strong> – Submit by June 15, 2025</li>
+      <li><strong>Robotics Challenge</strong> – Sign up by July 5, 2025</li>
     </ul>
   </section>
 
@@ -99,11 +98,6 @@
   </footer>
 
   <script>
-    // Smooth scroll function for buttons
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
     // Carousel logic
     const reviews = document.querySelectorAll('.review');
     const prevBtn = document.getElementById('prevBtn');
