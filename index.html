@@ -1,14 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunity Finder</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
 </head>
 <body>
-  
+
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -19,9 +20,79 @@
     </ul>
   </nav>
 
+  <!-- Banner Header -->
+  <header class="banner">
+    <h1>Opportunity Finder</h1>
+    <p>Helping students discover scholarships, internships, competitions, and summer programs</p>
+
+    <div class="button-group">
+      <a href="scholarships.html"><button class="main-button" style="background-color: #F25C54;">Scholarships</button></a>
+      <a href="internships.html"><button class="main-button" style="background-color: #70C1B3;">Internships</button></a>
+      <a href="competitions.html"><button class="main-button" style="background-color: #FFE066;">Competitions</button></a>
+      <a href="summer.html"><button class="main-button" style="background-color: #247BA0;">Summer Programs</button></a>
+    </div>
+  </header>
+
+  <!-- About Section -->
   <section class="content-section">
-    <h1>Welcome</h1>
-    <p>This is the homepage of the student opportunity platform.</p>
+    <h2>What We Do</h2>
+    <p>We make it easy for middle and high school students to find valuable academic and career-building opportunities all in one place.</p>
+    <ul class="item-list">
+      <li>Search scholarships that fit your goals and background</li>
+      <li>Explore internship programs across STEM, business, and more</li>
+      <li>Find national and international competitions for your talents</li>
+      <li>Discover summer programs to boost your skills and resume</li>
+    </ul>
   </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews">
+    <h2>What Students Say</h2>
+
+    <div class="review active">
+      “This platform helped me find a summer program I never would’ve known about!”
+      <span>– Priya R.</span>
+    </div>
+    <div class="review">
+      “Super organized and easy to navigate. I found a full scholarship I actually got!” 
+      <span>– Jordan M.</span>
+    </div>
+    <div class="review">
+      “The internship search made me feel way less overwhelmed. Thank you!” 
+      <span>– Aiden L.</span>
+    </div>
+
+    <div class="carousel-controls">
+      <button onclick="showReview(0)">1</button>
+      <button onclick="showReview(1)">2</button>
+      <button onclick="showReview(2)">3</button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="content-section" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="main-button" style="background-color: #8093F1;">Send</button>
+    </form>
+    <div class="form-message">We’ll get back to you soon!</div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Opportunity Finder. All rights reserved.
+  </footer>
+
+  <script>
+    const reviews = document.querySelectorAll(".review");
+    function showReview(index) {
+      reviews.forEach((rev, i) => {
+        rev.classList.toggle("active", i === index);
+      });
+    }
+  </script>
 </body>
 </html>
