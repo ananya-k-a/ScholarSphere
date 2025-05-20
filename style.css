@@ -70,7 +70,7 @@ header.banner p {
 nav.navbar {
   position: sticky;
   top: 0;
-  background-color: #474973; /* dark blue */
+  background-color: #0e0f20; /* dark blue */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 1000;
 }
@@ -213,7 +213,7 @@ nav.navbar a:focus {
   padding: 15px;
   font-size: 1.3rem;
   border-radius: 12px;
-  border: 1.5px solid #ccc;
+  border: 1.5px solid #9a9af8;
   resize: vertical;
   font-family: 'Fredoka One', cursive;
 }
