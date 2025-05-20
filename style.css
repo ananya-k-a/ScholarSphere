@@ -63,7 +63,7 @@ header.banner p {
 .main-button:hover {
   transform: scale(1.1);
   font-size: 1.7rem;
-  color:rgb(255, 255, 255)e;
+  color: rgb(255, 255, 255);
 }
 
 /* Navigation Bar */
@@ -139,10 +139,12 @@ nav.navbar a:focus {
   background-color: #D4C2E2; /* lavender */
   color: #161B33;
   border-radius: 20px;
-  margin: 80px auto 80px;
+  margin: 80px auto;
   padding: 60px 20px;
   max-width: 900px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .reviews h2 {
@@ -151,22 +153,29 @@ nav.navbar a:focus {
   font-weight: 700;
 }
 
+.carousel {
+  position: relative;
+  height: 220px; /* Adjust height as needed */
+  perspective: 1000px;
+}
+
+/* Review cards */
 .review {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.9) translateX(100%);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  width: 100%;
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
   font-size: 1.6rem;
   font-style: italic;
   color: #474973;
-  background-color: #f2f3f6; /* soft blue */
+  background-color: #f2f3f6;
   padding: 35px 30px;
   border-radius: 20px;
   box-shadow: 0 7px 20px rgba(0,0,0,0.1);
-  position: relative;
-}
-
-.review.active {
-  display: block;
+  z-index: 1;
 }
 
 .review span {
@@ -175,6 +184,24 @@ nav.navbar a:focus {
   display: block;
   margin-top: 15px;
   color: #161B33;
+}
+
+.review.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  z-index: 2;
+}
+
+.review.slide-left {
+  transform: scale(0.9) translateX(-100%);
+  opacity: 0;
+  z-index: 1;
+}
+
+.review.slide-right {
+  transform: scale(0.9) translateX(100%);
+  opacity: 0;
+  z-index: 1;
 }
 
 /* Carousel controls */
@@ -247,27 +274,34 @@ footer {
     font-size: 2rem;
     padding: 30px 20px 20px;
   }
+
   nav.navbar ul {
     gap: 20px;
   }
+
   nav.navbar a {
     font-size: 1.1rem;
   }
+
   .main-button {
     font-size: 1.2rem;
     padding: 14px 28px;
     min-width: 130px;
   }
+
   .reviews h2 {
     font-size: 2.2rem;
   }
+
   .review {
     font-size: 1.3rem;
     padding: 25px 20px;
   }
+
   .content-section h2 {
     font-size: 2rem;
   }
+
   .item-list {
     font-size: 1.2rem;
   }
