@@ -105,21 +105,29 @@
     let currentIndex = 0;
     let intervalId;
 
-    function showReview(index) {
-      reviews.forEach((review, i) => {
-        review.classList.toggle('active', i === index);
-      });
+    function showReview(index, direction = 'right') {
+  reviews.forEach((review, i) => {
+    review.classList.remove('active', 'slide-left', 'slide-right');
+    if (i === index) {
+      review.classList.add('active');
+    } else {
+      review.classList.add(direction === 'right' ? 'slide-left' : 'slide-right');
     }
+  });
+}
 
-    function nextReview() {
-      currentIndex = (currentIndex + 1) % reviews.length;
-      showReview(currentIndex);
-    }
+function nextReview() {
+  const previousIndex = currentIndex;
+  currentIndex = (currentIndex + 1) % reviews.length;
+  showReview(currentIndex, 'right');
+}
 
-    function prevReview() {
-      currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-      showReview(currentIndex);
-    }
+function prevReview() {
+  const previousIndex = currentIndex;
+  currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+  showReview(currentIndex, 'left');
+}
+
 
     function startCarousel() {
       intervalId = setInterval(nextReview, 5000); // Rotate every 5 seconds
