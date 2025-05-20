@@ -95,6 +95,7 @@ nav.navbar a {
 nav.navbar a:hover,
 nav.navbar a:focus {
   color: #ebedf8;
+  font-size: 1.7rem;
   outline: none;
 }
 
