@@ -135,9 +135,7 @@ nav.navbar a:focus {
 
 /* Testimonials Carousel Section */
 .reviews {
-  background-color: #d3d8f6;
   color: #161B33;
-  border-radius: 20px;
   margin: 80px auto 80px;
   padding: 30px 20px 60px; /* extra bottom padding for controls */
   max-width: 900px;
@@ -170,7 +168,8 @@ nav.navbar a:focus {
   width: 650px;
   max-width: 90vw;
   padding: 15px 35px;
-  background: transparent; /* no lavender box */
+  background: #d3d8f6;
+  border-radius: 20px;    
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%) scale(0.98);
