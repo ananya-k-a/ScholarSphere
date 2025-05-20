@@ -140,19 +140,6 @@ function prevReview() {
     showReview(currentIndex);
     startCarousel();
 
-    // Button controls with pause
-    nextBtn.addEventListener('click', () => {
-      stopCarousel();
-      nextReview();
-      startCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      stopCarousel();
-      prevReview();
-      startCarousel();
-    });
-
     // Contact form submission
     const form = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');

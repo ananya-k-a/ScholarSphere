@@ -144,7 +144,7 @@ nav.navbar a:focus {
   max-width: 900px;
   text-align: center;
   position: relative;
-  perspective: 1200px;
+  perspective: 1200px; /* enables 3D transform depth */
 
   height: 200px; /* Fixed height to prevent overlap */
   overflow: visible;
@@ -155,7 +155,7 @@ nav.navbar a:focus {
   margin-bottom: 50px;
   font-weight: 700;
   position: relative;
-  z-index: 10;
+  z-index: 10; /* keep title above reviews */
 }
 
 .review {
@@ -173,9 +173,8 @@ nav.navbar a:focus {
   color: #474973;
   user-select: none;
   transform-origin: center center;
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.8s ease, opacity 0.8s ease;
+  /* Removed default opacity and pointer-events */
+  transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
   transform-style: preserve-3d;
   box-sizing: border-box;
   text-align: center;
@@ -195,24 +194,25 @@ nav.navbar a:focus {
 .review.active {
   opacity: 1;
   pointer-events: auto;
-  z-index: 5;
+  z-index: 10;
   transform: translateX(-50%) scale(1) translateZ(0);
+  filter: brightness(1);
 }
 
 /* Previous review slides left and shrinks */
 .review.prev {
   opacity: 1;
   pointer-events: none;
-  z-index: 3;
+  z-index: 5;
   transform: translateX(calc(-150%)) scale(0.75) translateZ(-200px);
   filter: brightness(0.8);
 }
 
-/* Next review is offscreen right, prepared for animation */
+/* Next review slides in from right and shrinks */
 .review.next {
   opacity: 1;
   pointer-events: none;
-  z-index: 3;
+  z-index: 5;
   transform: translateX(calc(150%)) scale(0.75) translateZ(-200px);
   filter: brightness(0.8);
 }
