@@ -13,14 +13,14 @@ html, body {
 
 /* Banner / Thin header */
 header.banner {
-  background-color: #8093F1; /* bright vibrant blue */
+  background-color: #4a3ef1; /* bright vibrant blue */
   color: white;
   padding: 40px 20px 30px; /* more padding for space */
   text-align: center;
   font-size: 2.8rem;
   letter-spacing: 2px;
   font-weight: normal;
-  border-bottom: 4px solid #474973; /* darker accent line */
+  border-bottom: 4px solid #0e0f20; /* darker accent line */
   user-select: none;
 }
 
@@ -95,7 +95,7 @@ nav.navbar a {
 
 nav.navbar a:hover,
 nav.navbar a:focus {
-  color: #8093F1;
+  color: #ebedf8;
   outline: none;
 }
 
