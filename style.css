@@ -155,16 +155,13 @@ nav.navbar a:focus {
 
 .carousel {
   position: relative;
-  height: 220px; /* Adjust height as needed */
+  height: 220px; /* adjust height as needed */
   perspective: 1000px;
 }
 
 /* Review cards */
 .review {
   position: absolute;
-  opacity: 0;
-  transform: scale(0.9) translateX(100%);
-  transition: transform 0.6s ease, opacity 0.6s ease;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
@@ -175,33 +172,33 @@ nav.navbar a:focus {
   padding: 35px 30px;
   border-radius: 20px;
   box-shadow: 0 7px 20px rgba(0,0,0,0.1);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
   z-index: 1;
 }
 
-.review span {
-  font-weight: 700;
-  font-style: normal;
-  display: block;
-  margin-top: 15px;
-  color: #161B33;
-}
-
+/* Active review is visible, centered and full size */
 .review.active {
   opacity: 1;
-  transform: scale(1) translateX(0);
   z-index: 2;
+  transform: translateX(-50%) scale(1);
 }
 
-.review.slide-left {
-  transform: scale(0.9) translateX(-100%);
+/* Outgoing slide: slide left while shrinking */
+.review.slide-out-left {
   opacity: 0;
+  transform: translateX(-150%) scale(0.7);
   z-index: 1;
 }
 
-.review.slide-right {
-  transform: scale(0.9) translateX(100%);
-  opacity: 0;
-  z-index: 1;
+/* Incoming slide: start off right small and slide in growing */
+.review.slide-in-right {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  z-index: 3;
 }
 
 /* Carousel controls */
