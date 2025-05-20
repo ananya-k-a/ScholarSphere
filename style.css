@@ -83,6 +83,7 @@ nav.navbar ul {
 }
 
 nav.navbar a {
+  color: #dfe0fe;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.3rem;
