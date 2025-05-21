@@ -46,10 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const formMessage = document.getElementById('formMessage');
 
   if (form && formMessage) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formMessage.textContent = 'Thank you for reaching out! We will get back to you soon.';
-      form.reset();
+  form.addEventListener('submit', () => {
+    formMessage.textContent = 'Submitting...';
     });
   }
 });
