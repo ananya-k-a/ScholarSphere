@@ -29,9 +29,14 @@
     <h2 id="scholarships-heading">Scholarships</h2>
 
     <!-- Filters -->
+    <!-- Filter Toggle Button -->
+<button id="toggleFilters" type="button">Show Filters ▼</button>
+
+<!-- Filter Form Container -->
+  <div id="filterContainer" style="display: none;">
     <form id="filterForm" aria-label="Filter scholarships">
-      <label for="eligibilityFilter">Eligibility:</label>
-      <select id="eligibilityFilter" name="eligibility">
+       <label for="eligibilityFilter">Eligibility:</label>
+     <select id="eligibilityFilter" name="eligibility">
         <option value="">All</option>
         <option value="highschool">High School</option>
         <option value="undergrad">Undergraduate</option>
@@ -49,7 +54,7 @@
       </select>
 
       <label for="citizenshipFilter">Citizenship:</label>
-      <select id="citizenshipFilter" name="citizenship">
+     <select id="citizenshipFilter" name="citizenship">
         <option value="">All</option>
         <option value="us">U.S. Citizen</option>
         <option value="permanent_resident">Permanent Resident</option>
@@ -64,6 +69,8 @@
 
       <button type="submit">Filter</button>
     </form>
+  </div>
+
 
     <ul id="scholarship-list" class="item-list" aria-live="polite" aria-relevant="additions removals">
       <!-- Scholarships will be dynamically inserted here -->

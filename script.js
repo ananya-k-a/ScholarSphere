@@ -100,7 +100,6 @@ function renderCombinedScholarships(filters = {}) {
     const li = document.createElement("li");
     li.className = "scholarship-card";
 
-    // Build inner HTML with all fields + infoLink if present
     li.innerHTML = `
       <div class="card-header">${s.name}</div>
       <div class="card-body">
@@ -114,7 +113,6 @@ function renderCombinedScholarships(filters = {}) {
       </div>
     `;
 
-    // If infoLink exists, make the whole card clickable (optional UX)
     if (s.infoLink) {
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
@@ -126,7 +124,7 @@ function renderCombinedScholarships(filters = {}) {
   });
 }
 
-// Filter form submission handler
+// Filter form submission handler + Toggle dropdown
 document.addEventListener("DOMContentLoaded", () => {
   const filterForm = document.getElementById("filterForm");
 
@@ -143,6 +141,18 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       renderCombinedScholarships(filters);
+    });
+  }
+
+  // Toggle filter dropdown functionality
+  const toggleBtn = document.getElementById("toggleFilters");
+  const filterContainer = document.getElementById("filterContainer");
+
+  if (toggleBtn && filterContainer) {
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = filterContainer.style.display === "none";
+      filterContainer.style.display = isHidden ? "block" : "none";
+      toggleBtn.textContent = isHidden ? "Hide Filters ▲" : "Show Filters ▼";
     });
   }
 

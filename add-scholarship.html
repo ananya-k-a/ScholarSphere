@@ -6,10 +6,6 @@
   <title>Add Scholarship – ScholarSphere</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
 </head>
 <body>
   <header class="banner">
@@ -29,6 +25,7 @@
   <section class="content-section">
     <form id="addScholarshipForm">
       <input type="text" name="name" placeholder="Scholarship Name" required />
+
       <label for="deadlineFilter">Deadline Before:</label>
       <input type="date" id="deadlineFilter" name="deadline" />
 
@@ -59,7 +56,10 @@
       </select>
 
       <label for="amount">Minimum Amount (USD):</label>
-      <input type="number" id="amount" name="amount" placeholder="Minimum award amount in USD"/>
+      <input type="number" id="amount" name="amount" placeholder="Minimum award amount in USD" />
+
+      <label for="infoLink">More Info Link (URL):</label>
+      <input type="url" id="infoLink" name="infoLink" placeholder="https://example.com" />
 
       <button type="submit">Submit Scholarship</button>
     </form>
@@ -75,6 +75,46 @@
     <p>&copy; 2025 ScholarSphere. All rights reserved.</p>
   </footer>
 
-  <script src="main.js"></script>
+  <script>
+    const form = document.getElementById('addScholarshipForm');
+    const message = document.getElementById('addScholarshipMessage');
+    
+    // Replace this with your actual deployed Apps Script Web App URL
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyR-8zDveSeRh1xur8Qq4s5N7Y-tUcMjy6uBdAJxhd6eJ1CUxVTDhRo5DQRwYZm6nD/exec';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      try {
+        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.result === 'success') {
+          message.textContent = 'Thank you! Your scholarship submission was received.';
+          message.style.color = 'green';
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Unknown error');
+        }
+      } catch (error) {
+        message.textContent = 'Error submitting scholarship: ' + error.message;
+        message.style.color = 'red';
+      }
+    });
+  </script>
 </body>
 </html>
