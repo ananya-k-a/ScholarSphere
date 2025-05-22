@@ -254,3 +254,19 @@ footer {
   margin-top: 60px;
   letter-spacing: 1px;
 }
+
+#addScholarshipButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2d89ef; /* blue button color */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+#addScholarshipButton:hover {
+  background-color: #1b5fbd; /* darker blue on hover */
+}
+
