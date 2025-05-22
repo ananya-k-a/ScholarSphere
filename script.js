@@ -148,5 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial data fetch
   fetchGoogleSheetData();
-  fetchFirestoreData();
+
 });
