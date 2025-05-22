@@ -75,14 +75,33 @@ function renderCombinedScholarships(filters = {}) {
   });
 
   if (filtered.length === 0) {
-    list.innerHTML = "<li>No scholarships found.</li>";
+    list.innerHTML = "<p class='no-results'>No scholarships found.</p>";
     return;
   }
 
-  filtered.forEach(s => {
-    const li = document.createElement("li");
-    li.textContent = `${s.name} — Deadline: ${s.deadline} — Amount: $${s.amount} — Eligibility: ${s.eligibility} — Category: ${s.category} — Citizenship: ${s.citizenship} (${s.source})`;
-    list.appendChild(li);
+  filtered.forEach((s) => {
+    const card = document.createElement("div");
+    card.className = "scholarship-card";
+    card.innerHTML = `
+      <div class="card-header">${s.name}</div>
+      <div class="card-body">
+        <p><strong>Deadline:</strong> ${s.deadline}</p>
+        <p><strong>Amount:</strong> $${s.amount}</p>
+        <p><strong>Eligibility:</strong> ${s.eligibility}</p>
+        <p><strong>Category:</strong> ${s.category}</p>
+        <p><strong>Citizenship:</strong> ${s.citizenship}</p>
+        <p class="source">Source: ${s.source}</p>
+      </div>
+    `;
+
+    if (s.infoLink) {
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        window.open(s.infoLink, "_blank");
+      });
+    }
+
+    list.appendChild(card);
   });
 }
 

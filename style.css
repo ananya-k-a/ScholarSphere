@@ -270,3 +270,37 @@ footer {
   background-color: #1b5fbd; /* darker blue on hover */
 }
 
+.scholarship-card {
+  border: 2px solid #4a90e2;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  background-color: #f0f8ff;
+  transition: box-shadow 0.3s;
+}
+
+.scholarship-card:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #4a90e2, #0077ff);
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  margin: -16px -16px 10px -16px;
+}
+
+.card-body p {
+  margin: 6px 0;
+}
+
+.source {
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+}
+
+
