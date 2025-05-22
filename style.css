@@ -168,8 +168,9 @@ nav.navbar a:focus {
   width: 650px;
   max-width: 90vw;
   padding: 15px 35px;
-  background: #d3d8f6;
-  border-radius: 20px;    
+  background: #d3d8f6;      /* Lavender background only on review */
+  border-radius: 20px;      /* Rounded corners only on review */
+  color: #161B33;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%) scale(0.98);
@@ -243,6 +244,7 @@ nav.navbar a:focus {
   text-align: center;
 }
 
+/* Footer styles */
 footer {
   background: #0e0f20;
   color: #fff;

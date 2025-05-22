@@ -6,6 +6,11 @@
   <title>Scholarships – ScholarSphere</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+
+    <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+
 </head>
 <body>
   <header class="banner">
@@ -22,6 +27,23 @@
     </ul>
   </nav>
 
+  <section id="scholarships" class="content-section" aria-labelledby="scholarships-heading">
+  <h2 id="scholarships-heading">Scholarships</h2>
+  <p>Find scholarships tailored just for you! Filter by deadline, amount, and category.</p>
+  <ul id="scholarship-list" class="item-list">
+    <!-- Scholarships will be dynamically inserted here -->
+  </ul>
+
+  <h3>Add a Scholarship</h3>
+  <form id="addScholarshipForm">
+    <input type="text" name="name" placeholder="Scholarship Name" required />
+    <input type="date" name="deadline" placeholder="Deadline" required />
+    <button type="submit">Add Scholarship</button>
+  </form>
+
+  <p id="addScholarshipMessage" class="form-message"></p>
+</section>
+
   <div class="content-section">
     <a href="home.html" class="main-button">Back to Home</a>
   </div>
@@ -32,4 +54,5 @@
     <p>&copy; 2025 ScholarSphere. All rights reserved.</p>
   </footer>
 </body>
+<script src="main.js"></script>
 </html>
