@@ -54,8 +54,8 @@
       <select id="citizenshipFilter" name="citizenship">
         <option value="">All</option>
         <option value="us">U.S. Citizen</option>
-        <option value="intl">International</option>
-        <option value="any">Any</option>
+        <option value="permanent_resident">Permanent Resident</option>
+        <option value="international">International</option>
       </select>
 
       <label for="deadlineFilter">Deadline Before:</label>
@@ -68,8 +68,9 @@
       <!-- Scholarships will be dynamically inserted here -->
     </ul>
 
-    <h3>Don't see a scholarship?</h3>
-    <a href="add-scholarship.html" class="main-button">Submit a Scholarship</a>
+    <div>
+      <a href="add-scholarship.html" id="addScholarshipButton" role="button">Add Scholarship</a>
+    </div>
   </section>
 
   <div class="content-section">
