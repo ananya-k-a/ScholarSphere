@@ -1,20 +1,22 @@
-// Firebase configuration and initialization
+// Fetch scholarships from Google Sheet with new headers
 fetch('https://opensheet.elk.sh/1FKcUTWy6JbeeD-2Rb8sjeTgY-n_PQLQbx-tYpLQQjv8/Sheet1')
   .then(response => response.json())
   .then(data => {
-    const scholarshipList = document.getElementById('scholarship-list');
-    scholarshipList.innerHTML = '';
+    const sheetList = document.getElementById('sheet-scholarship-list');
+    if (!sheetList) return; // safety check
+    sheetList.innerHTML = '';
 
     data.forEach(scholarship => {
       const li = document.createElement('li');
-      li.textContent = `${scholarship.name} — Deadline: ${scholarship.deadline} — Amount: $${scholarship.amount}`;
-      scholarshipList.appendChild(li);
+      li.textContent = `${scholarship["Name"]} — Deadline Before: ${scholarship["Deadline Before"]} — Amount: $${scholarship["Amount in USD"]} — Eligibility: ${scholarship["Eligibility"]} — Category: ${scholarship["Category"]} — Citizenship: ${scholarship["Citizenship"]}`;
+      sheetList.appendChild(li);
     });
   })
   .catch(error => {
-    console.error('Error loading scholarships:', error);
+    console.error('Error loading scholarships from Google Sheet:', error);
   });
 
+// Firebase configuration and initialization
 const firebaseConfig = {
   apiKey: "AIzaSyBe4tdkLcdgd0V8RmbVBXt62xVWQWsw8cY",
   authDomain: "scholarsphere-b3774.firebaseapp.com",
@@ -78,21 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Scholarships logic
+// Scholarships logic (Firestore and filtering)
 document.addEventListener('DOMContentLoaded', () => {
   const scholarshipList = document.getElementById('scholarship-list');
   const addForm = document.getElementById('addScholarshipForm');
   const filterForm = document.getElementById('filterForm');
   const message = document.getElementById('addScholarshipMessage');
 
-  // Function to render scholarships
+  // Function to render scholarships from Firestore with filters
   function renderScholarships(snapshot, filters = {}) {
     scholarshipList.innerHTML = "";
 
     snapshot.forEach(doc => {
       const data = doc.data();
 
-      // Apply filters manually (Firestore can't do compound queries on arbitrary filters)
       if (
         (filters.eligibility && data.eligibility !== filters.eligibility) ||
         (filters.category && data.category !== filters.category) ||
@@ -103,12 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const li = document.createElement("li");
-      li.textContent = `${data.name} — Deadline: ${data.deadline}`;
+      li.textContent = `${data.name} — Deadline: ${data.deadline} — Amount: $${data.amount}`;
       scholarshipList.appendChild(li);
     });
   }
 
-  // Real-time listener with optional filters
+  // Real-time Firestore listener with optional filters
   function loadScholarships(filters = {}) {
     db.collection("scholarships")
       .orderBy("deadline")
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Add scholarship
+  // Add scholarship via Firestore form
   if (addForm && message) {
     addForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -148,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter scholarships
+  // Filter scholarships form submission
   if (filterForm) {
     filterForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -168,6 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial load without filters
+  // Initial Firestore load without filters
   loadScholarships();
 });
