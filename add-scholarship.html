@@ -29,7 +29,8 @@
   <section class="content-section">
     <form id="addScholarshipForm">
       <input type="text" name="name" placeholder="Scholarship Name" required />
-      <input type="date" name="deadline" placeholder="Deadline" required />
+      <label for="deadlineFilter">Deadline Before:</label>
+      <input type="date" id="deadlineFilter" name="deadline" />
 
       <label for="eligibility">Eligibility:</label>
       <select name="eligibility" required>
