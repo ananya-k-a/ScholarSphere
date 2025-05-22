@@ -28,7 +28,7 @@
 
   <section id="scholarships" class="content-section" aria-labelledby="scholarships-heading">
     <h2 id="scholarships-heading">Scholarships</h2>
-    <p>Find scholarships tailored just for you! Filter by deadline, amount, category, and eligibility.</p>
+    <p>Find scholarships tailored just for you! Filter by deadline, amount, category, eligibility, and citizenship.</p>
 
     <!-- Filters -->
     <form id="filterForm" aria-label="Filter scholarships">
@@ -50,12 +50,22 @@
         <option value="business">Business</option>
       </select>
 
+      <label for="citizenshipFilter">Citizenship:</label>
+      <select id="citizenshipFilter" name="citizenship">
+        <option value="">All</option>
+        <option value="us">U.S. Citizen</option>
+        <option value="permanent_resident">Permanent Resident</option>
+        <option value="international">International</option>
+        <option value="any">Any Status</option>
+      </select>
+
       <label for="deadlineFilter">Deadline Before:</label>
       <input type="date" id="deadlineFilter" name="deadline" />
 
       <button type="submit">Filter</button>
     </form>
 
+    <!-- List of scholarships -->
     <ul id="scholarship-list" class="item-list">
       <!-- Scholarships will be dynamically inserted here -->
     </ul>
@@ -66,6 +76,7 @@
       <input type="date" name="deadline" placeholder="Deadline" required />
       <input type="text" name="eligibility" placeholder="Eligibility (e.g. highschool, undergrad)" />
       <input type="text" name="category" placeholder="Category (e.g. STEM, arts)" />
+      <input type="text" name="citizenship" placeholder="Citizenship (e.g. us, international)" />
       <input type="number" name="amount" placeholder="Amount in USD" />
       <button type="submit">Add Scholarship</button>
     </form>
