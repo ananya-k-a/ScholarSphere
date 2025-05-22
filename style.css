@@ -271,36 +271,34 @@ footer {
 }
 
 .scholarship-card {
-  border: 2px solid #4a90e2;
+  background-color: #f5f5ff;
+  border: 2px solid #ccc;
   border-radius: 12px;
-  padding: 16px;
-  margin: 12px 0;
-  background-color: #f0f8ff;
-  transition: box-shadow 0.3s;
+  margin: 1rem;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  max-width: 500px;
 }
 
 .scholarship-card:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .card-header {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(to right, #4a90e2, #0077ff);
-  padding: 10px;
+  font-family: 'Fredoka One', cursive;
+  background-color: #4c63af;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.5rem;
   border-radius: 8px 8px 0 0;
-  margin: -16px -16px 10px -16px;
 }
 
-.card-body p {
-  margin: 6px 0;
+.card-body {
+  padding: 0.5rem;
+  font-size: 0.95rem;
 }
 
-.source {
-  font-style: italic;
-  color: #666;
-  margin-top: 10px;
-}
 
 
