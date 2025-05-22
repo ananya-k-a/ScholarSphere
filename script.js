@@ -1,4 +1,20 @@
 // Firebase configuration and initialization
+fetch('https://opensheet.elk.sh/1FKcUTWy6JbeeD-2Rb8sjeTgY-n_PQLQbx-tYpLQQjv8/Sheet1')
+  .then(response => response.json())
+  .then(data => {
+    const scholarshipList = document.getElementById('scholarship-list');
+    scholarshipList.innerHTML = '';
+
+    data.forEach(scholarship => {
+      const li = document.createElement('li');
+      li.textContent = `${scholarship.name} — Deadline: ${scholarship.deadline} — Amount: $${scholarship.amount}`;
+      scholarshipList.appendChild(li);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading scholarships:', error);
+  });
+
 const firebaseConfig = {
   apiKey: "AIzaSyBe4tdkLcdgd0V8RmbVBXt62xVWQWsw8cY",
   authDomain: "scholarsphere-b3774.firebaseapp.com",
