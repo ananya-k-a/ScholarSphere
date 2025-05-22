@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scholarships – ScholarSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Scholarship – ScholarSphere</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
 
@@ -13,8 +13,8 @@
 </head>
 <body>
   <header class="banner">
-    <h1>Scholarships</h1>
-    <p>We're building a curated list of scholarships just for you. Check back soon!</p>
+    <h1>Add a Scholarship</h1>
+    <p>Contribute to our growing collection and help others find the right opportunities!</p>
   </header>
 
   <nav class="navbar">
@@ -26,54 +26,47 @@
     </ul>
   </nav>
 
-  <section id="scholarships" class="content-section" aria-labelledby="scholarships-heading">
-    <h2 id="scholarships-heading">Scholarships</h2>
-    <p>Find scholarships tailored just for you! Filter by deadline, amount, category, eligibility, and citizenship.</p>
+  <section class="content-section">
+    <form id="addScholarshipForm">
+      <input type="text" name="name" placeholder="Scholarship Name" required />
+      <input type="date" name="deadline" placeholder="Deadline" required />
 
-    <!-- Filters -->
-    <form id="filterForm" aria-label="Filter scholarships">
-      <label for="eligibilityFilter">Eligibility:</label>
-      <select id="eligibilityFilter" name="eligibility">
-        <option value="">All</option>
+      <label for="eligibility">Eligibility:</label>
+      <select name="eligibility" required>
+        <option value="">Select</option>
         <option value="highschool">High School</option>
         <option value="undergrad">Undergraduate</option>
         <option value="graduate">Graduate</option>
         <option value="all">All Students</option>
       </select>
 
-      <label for="categoryFilter">Category:</label>
-      <select id="categoryFilter" name="category">
-        <option value="">All</option>
+      <label for="category">Category:</label>
+      <select name="category" required>
+        <option value="">Select</option>
         <option value="stem">STEM</option>
         <option value="arts">Arts</option>
         <option value="community">Community Service</option>
         <option value="business">Business</option>
       </select>
 
-      <label for="citizenshipFilter">Citizenship:</label>
-      <select id="citizenshipFilter" name="citizenship">
-        <option value="">All</option>
+      <label for="citizenship">Citizenship:</label>
+      <select name="citizenship" required>
+        <option value="">Select</option>
         <option value="us">U.S. Citizen</option>
         <option value="intl">International</option>
         <option value="any">Any</option>
       </select>
 
-      <label for="deadlineFilter">Deadline Before:</label>
-      <input type="date" id="deadlineFilter" name="deadline" />
+      <input type="number" name="amount" placeholder="Amount in USD" min="0" required />
 
-      <button type="submit">Filter</button>
+      <button type="submit">Submit Scholarship</button>
     </form>
 
-    <ul id="scholarship-list" class="item-list">
-      <!-- Scholarships will be dynamically inserted here -->
-    </ul>
-
-    <h3>Don't see a scholarship?</h3>
-    <a href="add-scholarship.html" class="main-button">Submit a Scholarship</a>
+    <p id="addScholarshipMessage" class="form-message"></p>
   </section>
 
   <div class="content-section">
-    <a href="home.html" class="main-button">Back to Home</a>
+    <a href="scholarships.html" class="main-button">Back to Scholarships</a>
   </div>
 
   <footer>
