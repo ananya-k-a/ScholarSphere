@@ -22,16 +22,22 @@ async function fetchGoogleSheetData() {
     const res = await fetch('https://opensheet.elk.sh/1FKcUTWy6JbeeD-2Rb8sjeTgY-n_PQLQbx-tYpLQQjv8/Sheet1');
     const data = await res.json();
 
-    googleSheetScholarships = data.map(s => ({
-      name: s["Name"],
-      deadline: s["Deadline Before"],
-      eligibility: s["Eligibility"],
-      category: s["Category"],
-      citizenship: s["Citizenship"],
-      amount: Number(s["Amount in USD"]) || 0,
-      infoLink: s["infoLink"] || "",
-      source: "Google Sheets"
-    }));
+    // Debug: log the first row to check keys
+    console.log('First row from Google Sheet:', data[0]);
+
+    // Filter out empty rows and robustly map infoLink
+    googleSheetScholarships = data
+      .filter(item => item["Name"] && item["Name"].trim() !== "")
+      .map(item => ({
+        name: item["Name"],
+        deadline: item["Deadline Before"],
+        eligibility: item["Eligibility"],
+        category: item["Category"],
+        citizenship: item["Citizenship"],
+        amount: Number(item["Amount in USD"]) || 0,
+        infoLink: item["infoLink"] || item["InfoLink"] || item["Info Link"] || "",
+        source: "Google Sheets"
+      }));
 
     renderCombinedScholarships();
   } catch (error) {
