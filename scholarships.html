@@ -28,49 +28,47 @@
   <section id="scholarships" class="content-section" aria-labelledby="scholarships-heading">
     <h2 id="scholarships-heading">Scholarships</h2>
 
-    <!-- Filters -->
     <!-- Filter Toggle Button -->
-<button id="toggleFilters" type="button">Show Filters ▼</button>
+    <button id="toggleFilters" type="button">Show Filters ▼</button>
 
-<!-- Filter Form Container -->
-  <div id="filterContainer" style="display: none;">
-    <form id="filterForm" aria-label="Filter scholarships">
-       <label for="eligibilityFilter">Eligibility:</label>
-     <select id="eligibilityFilter" name="eligibility">
-        <option value="">All</option>
-        <option value="highschool">High School</option>
-        <option value="undergrad">Undergraduate</option>
-        <option value="graduate">Graduate</option>
-        <option value="all">All Students</option>
-      </select>
+    <!-- Filter Form Container -->
+    <div id="filterContainer" style="display: none;">
+      <form id="filterForm" aria-label="Filter scholarships">
+        <label for="eligibilityFilter">Eligibility:</label>
+        <select id="eligibilityFilter" name="eligibility">
+          <option value="">All</option>
+          <option value="highschool">High School</option>
+          <option value="undergrad">Undergraduate</option>
+          <option value="graduate">Graduate</option>
+          <option value="all">All Students</option>
+        </select>
 
-      <label for="categoryFilter">Category:</label>
-      <select id="categoryFilter" name="category">
-        <option value="">All</option>
-        <option value="stem">STEM</option>
-        <option value="arts">Arts</option>
-        <option value="community">Community Service</option>
-        <option value="business">Business</option>
-      </select>
+        <label for="categoryFilter">Category:</label>
+        <select id="categoryFilter" name="category">
+          <option value="">All</option>
+          <option value="stem">STEM</option>
+          <option value="arts">Arts</option>
+          <option value="community">Community Service</option>
+          <option value="business">Business</option>
+        </select>
 
-      <label for="citizenshipFilter">Citizenship:</label>
-     <select id="citizenshipFilter" name="citizenship">
-        <option value="">All</option>
-        <option value="us">U.S. Citizen</option>
-        <option value="permanent_resident">Permanent Resident</option>
-        <option value="international">International</option>
-      </select>
+        <label for="citizenshipFilter">Citizenship:</label>
+        <select id="citizenshipFilter" name="citizenship">
+          <option value="">All</option>
+          <option value="us">U.S. Citizen</option>
+          <option value="permanent_resident">Permanent Resident</option>
+          <option value="international">International</option>
+        </select>
 
-      <label for="deadlineFilter">Deadline Before:</label>
-      <input type="date" id="deadlineFilter" name="deadline" />
+        <label for="deadlineFilter">Deadline Before:</label>
+        <input type="date" id="deadlineFilter" name="deadline" />
 
-      <label for="amountFilter">Minimum Amount (USD):</label>
-      <input type="number" id="amountFilter" name="amount" min="0" placeholder="No minimum" />
+        <label for="amountFilter">Minimum Amount (USD):</label>
+        <input type="number" id="amountFilter" name="amount" min="0" placeholder="No minimum" />
 
-      <button type="submit">Filter</button>
-    </form>
-  </div>
-
+        <button type="submit">Filter</button>
+      </form>
+    </div>
 
     <ul id="scholarship-list" class="item-list" aria-live="polite" aria-relevant="additions removals">
       <!-- Scholarships will be dynamically inserted here -->
@@ -222,21 +220,32 @@
 
     // Setup event listeners on DOM ready
     document.addEventListener("DOMContentLoaded", () => {
+      // Filter form submission
       const filterForm = document.getElementById("filterForm");
+      if (filterForm) {
+        filterForm.addEventListener("submit", e => {
+          e.preventDefault();
+          const filters = {
+            eligibility: filterForm.eligibility.value,
+            category: filterForm.category.value,
+            citizenship: filterForm.citizenship.value,
+            deadline: filterForm.deadline.value,
+            amount: parseFloat(filterForm.amount.value)
+          };
+          renderCombinedScholarships(filters);
+        });
+      }
 
-      filterForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        const filters = {
-          eligibility: filterForm.eligibility.value,
-          category: filterForm.category.value,
-          citizenship: filterForm.citizenship.value,
-          deadline: filterForm.deadline.value,
-          amount: parseFloat(filterForm.amount.value)
-        };
-
-        renderCombinedScholarships(filters);
-      });
+      // Toggle filter dropdown functionality
+      const toggleBtn = document.getElementById("toggleFilters");
+      const filterContainer = document.getElementById("filterContainer");
+      if (toggleBtn && filterContainer) {
+        toggleBtn.addEventListener("click", () => {
+          const isHidden = filterContainer.style.display === "none";
+          filterContainer.style.display = isHidden ? "block" : "none";
+          toggleBtn.textContent = isHidden ? "Hide Filters ▲" : "Show Filters ▼";
+        });
+      }
 
       // Load data from both sources
       fetchGoogleSheetData();
