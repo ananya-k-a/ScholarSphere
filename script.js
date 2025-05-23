@@ -124,14 +124,12 @@ function renderCombinedScholarships(filters = {}) {
   });
 }
 
-// Filter form submission handler + Toggle dropdown
 document.addEventListener("DOMContentLoaded", () => {
+  // Filter form submission
   const filterForm = document.getElementById("filterForm");
-
   if (filterForm) {
     filterForm.addEventListener("submit", e => {
       e.preventDefault();
-
       const filters = {
         eligibility: filterForm.eligibility.value,
         category: filterForm.category.value,
@@ -139,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
         deadline: filterForm.deadline.value,
         amount: parseFloat(filterForm.amount.value)
       };
-
       renderCombinedScholarships(filters);
     });
   }
@@ -147,7 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toggle filter dropdown functionality
   const toggleBtn = document.getElementById("toggleFilters");
   const filterContainer = document.getElementById("filterContainer");
-
   if (toggleBtn && filterContainer) {
     toggleBtn.addEventListener("click", () => {
       const isHidden = filterContainer.style.display === "none";
